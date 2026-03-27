@@ -1,0 +1,50 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999; /* Always on top */
+  margin: -4px 0 0 -4px; /* Center perfectly on coordinate */
+  opacity: 0;
+  transition: opacity 0.3s ease, width 0.2s ease, height 0.2s ease, margin 0.2s ease, background-color 0.2s ease;
+  will-change: transform, opacity;
+}
+
+.follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(245, 158, 11, 0.4); /* amber glow */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  margin: -16px 0 0 -16px;
+  opacity: 0;
+  transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease, margin 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.visible {
+  opacity: 1;
+}
+
+/* Hovering over clickable items */
+.hovering.cursor {
+  width: 0px;
+  height: 0px;
+  margin: 0;
+}
+
+.hovering.follower {
+  width: 48px;
+  height: 48px;
+  margin: -24px 0 0 -24px;
+  background-color: rgba(245, 158, 11, 0.08); /* Faint fill on hover */
+  border-color: rgba(245, 158, 11, 0.8);
+}

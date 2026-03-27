@@ -1,0 +1,208 @@
+.section {
+  padding: var(--space-16) 0;
+}
+
+.heading {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+  line-height: var(--leading-tight);
+}
+
+.intro {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: 560px;
+  margin-bottom: var(--space-10);
+}
+
+.principles {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-bottom: var(--space-10);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.principle {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  transition: background var(--transition-fast);
+}
+
+.principle:last-child {
+  border-bottom: none;
+}
+
+.principle:hover {
+  background: var(--color-surface-2);
+}
+
+.principleNumber {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--space-6) var(--space-4) var(--space-6) var(--space-4);
+  border-right: 1px solid var(--color-border);
+}
+
+.principleNumber span {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+}
+
+.principleContent {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.principleTitle {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-tight);
+}
+
+.principleBody {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* Architecture Diagram */
+.diagram {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  overflow-x: auto;
+}
+
+.diagramLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-5);
+}
+
+.diagramFlow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.serviceGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.archNode {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid;
+  min-width: 100px;
+}
+
+.archNodeSmall {
+  min-width: 86px;
+  padding: var(--space-2) var(--space-3);
+}
+
+.archNodeLabel {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+}
+
+.archNodeSub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.node_blue {
+  background: var(--color-blue-dim);
+  border-color: rgba(96,165,250,0.2);
+}
+
+.node_blue .archNodeLabel { color: var(--color-blue); }
+.node_blue .archNodeSub   { color: rgba(96,165,250,0.6); }
+
+.node_accent {
+  background: var(--color-accent-dim);
+  border-color: rgba(245,158,11,0.25);
+}
+
+.node_accent .archNodeLabel { color: var(--color-accent); }
+.node_accent .archNodeSub   { color: rgba(245,158,11,0.6); }
+
+.node_green {
+  background: var(--color-green-dim);
+  border-color: rgba(34,197,94,0.2);
+}
+
+.node_green .archNodeLabel { color: var(--color-green); }
+.node_green .archNodeSub   { color: rgba(34,197,94,0.6); }
+
+.node_default {
+  background: var(--color-surface-2);
+  border-color: var(--color-border-light);
+}
+
+.node_default .archNodeLabel { color: var(--color-text-secondary); }
+.node_default .archNodeSub   { color: var(--color-text-muted); }
+
+.arrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-10) 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .principle {
+    grid-template-columns: 40px 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: var(--space-8) 0;
+  }
+  
+  .heading {
+    font-size: var(--text-xl);
+  }
+
+  .principleContent {
+    padding: var(--space-4);
+  }
+
+  .principleNumber {
+    padding: var(--space-4) var(--space-3);
+  }
+}

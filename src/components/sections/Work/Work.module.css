@@ -1,0 +1,207 @@
+.section {
+  padding: var(--space-16) 0;
+}
+
+.heading {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+  line-height: var(--leading-tight);
+}
+
+.intro {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: 540px;
+  margin-bottom: var(--space-10);
+}
+
+/* ── Card ─────────────────────────────────────────── */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: var(--space-5);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-fast);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    800px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
+    rgba(245, 158, 11, 0.05),
+    transparent 40%
+  );
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  border-color: var(--color-border-light);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* ── Index column ─────────────────────────────────── */
+.indexCol {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 2px;
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-border-light);
+  line-height: 1;
+}
+
+/* ── Content column ───────────────────────────────── */
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0; /* prevent overflow in grid child */
+}
+
+/* Meta row: badges + company — all inline, wraps cleanly */
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.type {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  background: var(--color-accent-dim);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.period {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.company {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-left: auto; /* push to right when space allows */
+}
+
+.title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-tight);
+}
+
+.summary {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.highlight {
+  display: flex;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+.checkmark {
+  font-family: var(--font-mono);
+  color: var(--color-accent);
+  flex-shrink: 0;
+  font-size: var(--text-xs);
+  margin-top: 2px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-1);
+}
+
+/* ── Mobile ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-10) 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    grid-template-columns: 1fr;
+    padding: var(--space-5);
+    gap: var(--space-3);
+  }
+
+  .indexCol {
+    display: none; /* hide number on very small screens */
+  }
+
+  .company {
+    margin-left: 0;
+  }
+
+  .title {
+    font-size: var(--text-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: var(--space-8) 0;
+  }
+  
+  .heading {
+    font-size: var(--text-xl);
+  }
+}
